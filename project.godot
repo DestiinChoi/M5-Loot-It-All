@@ -1,3 +1,11 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
@@ -6,6 +14,11 @@ config/name="M05. Loot it All (Workbook)"
 run/main_scene="res://lessons/space_level.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.png"
+
+[autoload]
+
+UITestPanel="*res://addons/gdpractice/tester/ui_test_panel.tscn"
+Metadata="*res://addons/gdpractice/practice_solutions/metadata.gd"
 
 [display]
 
