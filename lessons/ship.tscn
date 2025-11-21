@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmv50krf4bo5r"]
+[gd_scene load_steps=8 format=3 uid="uid://dmv50krf4bo5r"]
 
 [ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
 [ext_resource type="Script" uid="uid://bwkr2t4ku15qq" path="res://lessons/ship.gd" id="4_p1sls"]
@@ -7,6 +7,33 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xifn"]
 radius = 44.011364
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xifn"]
+bg_color = Color(0.36862746, 0.36862746, 0.38039216, 0.5019608)
+skew = Vector2(0.4, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.52156866)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3paj"]
+content_margin_right = 2.0
+bg_color = Color(8.856058e-06, 0.7000873, 0.9030792, 1)
+skew = Vector2(0.4, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 0.01
 
 [node name="Ship" type="Area2D"]
 script = ExtResource("4_p1sls")
@@ -28,3 +55,20 @@ rotation = 1.36715
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5xifn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 56.0
+offset_bottom = -63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5xifn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h3paj")
+value = 1.0
+show_percentage = false
