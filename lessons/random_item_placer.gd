@@ -1,6 +1,7 @@
 extends Node2D
 
 var items_spawned := 0
+var max_items := 10
 var item_scenes := [
 	preload("gem.tscn"),
 	preload("health_pack.tscn")
@@ -12,9 +13,9 @@ func _ready() -> void:
 	
 
 func _on_timer_timeout() -> void:
-	if items_spawned >= 8:
+	if items_spawned >= max_items:
 		return
-	elif items_spawned < 8:
+	elif items_spawned < max_items:
 		var random_item_scene: PackedScene = item_scenes.pick_random()
 		var item_instance := random_item_scene.instantiate()
 		add_child(item_instance)

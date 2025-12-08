@@ -6,7 +6,7 @@ var velocity := Vector2(0, 0)
 var steering_factor := 3.0
 var health : float = 100
 var gem_count := 0
-var health_decay : float = 5
+var health_decay : float = 4.5
 var max_health : float = 100
 
 func _ready() -> void:
