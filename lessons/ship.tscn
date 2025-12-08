@@ -37,12 +37,13 @@ corner_radius_bottom_left = 2
 anti_aliasing_size = 0.01
 
 [sub_resource type="LabelSettings" id="LabelSettings_h3paj"]
-font_size = 20
+font_size = 26
 outline_size = 10
-outline_color = Color(0, 0, 0, 0.7372549)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Ship" type="Area2D"]
 position = Vector2(1, 0)
+collision_mask = 2
 script = ExtResource("4_p1sls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -82,17 +83,19 @@ show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 modulate = Color(0.7681606, 0.87209845, 0.87533844, 1)
-position = Vector2(37, -100)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-1, -104.99999)
+scale = Vector2(0.85, 0.85)
 texture = ExtResource("5_h3paj")
 
 [node name="GemCount" type="Label" parent="UI"]
 modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
 layout_mode = 0
-offset_left = 55.000004
-offset_top = -106.0
-offset_right = 95.00001
-offset_bottom = -78.0
+offset_left = -15.0
+offset_top = -124.0
+offset_right = 25.0
+offset_bottom = -82.0
 scale = Vector2(0.7200024, 0.72)
-text = "x0"
+text = "0"
 label_settings = SubResource("LabelSettings_h3paj")
+horizontal_alignment = 1
+vertical_alignment = 1

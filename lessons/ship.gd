@@ -13,12 +13,12 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 
-
 func _process(delta: float) -> void:
 	if health > 0:
 		set_health(health - health_decay * delta)
 	if health >= max_health:
 		health = max_health
+	
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 		get_node("Sprite2D").rotation = velocity.angle()
 
 
+
  # HealthBar Code
 func set_health(new_health: float) -> void:
 	health = new_health
@@ -45,7 +46,7 @@ func set_health(new_health: float) -> void:
  # GemCount Code
 func set_gem_count(new_gem_count: int) -> void:
 	gem_count = new_gem_count
-	get_node("UI/GemCount").text = "x" + str(gem_count)
+	get_node("UI/GemCount").text = str(gem_count)
 
 
 func _on_area_entered(area_that_entered: Area2D) -> void:
