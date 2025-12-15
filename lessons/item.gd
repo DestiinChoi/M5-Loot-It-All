@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _on_area_entered(_area: Area2D) -> void:
 	queue_free()
-	
+
 func play_floating_animation() -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_SINE)

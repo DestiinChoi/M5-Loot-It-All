@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btkjymc78ap8d"]
+[gd_scene load_steps=5 format=3 uid="uid://btkjymc78ap8d"]
 
 [ext_resource type="PackedScene" uid="uid://dmv50krf4bo5r" path="res://lessons/ship.tscn" id="2_2j1u5"]
 [ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="3_e6xy1"]
 [ext_resource type="PackedScene" uid="uid://0uu76vxlq51l" path="res://lessons/random_item_placer.tscn" id="3_etm7e"]
+[ext_resource type="AudioStream" uid="uid://c0q5br1smsofc" path="res://assets/audio/BG_Music.wav" id="4_4rc43"]
 
 [node name="Level" type="Node2D"]
 
@@ -12,3 +13,8 @@ position = Vector2(946, 546)
 [node name="SpaceBackground" parent="." instance=ExtResource("3_e6xy1")]
 
 [node name="RandomItemPlacer" parent="." instance=ExtResource("3_etm7e")]
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4rc43")
+volume_db = 2.0
+autoplay = true
