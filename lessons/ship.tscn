@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmv50krf4bo5r"]
+[gd_scene load_steps=18 format=3 uid="uid://dmv50krf4bo5r"]
 
 [ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
 [ext_resource type="Script" uid="uid://bwkr2t4ku15qq" path="res://lessons/ship.gd" id="4_p1sls"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c3o8vneviewoo" path="res://assets/audio/Heal.ogg" id="11_bifn2"]
 [ext_resource type="AudioStream" uid="uid://bgt1dhynt52hq" path="res://assets/audio/Gem4.ogg" id="11_yq0t8"]
 [ext_resource type="AudioStream" uid="uid://bv3jaog1focq4" path="res://assets/audio/Death.ogg" id="12_nlqlk"]
+[ext_resource type="AudioStream" uid="uid://52ccjqxqw654" path="res://assets/audio/Health_Level_Up.wav" id="13_q16h8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xifn"]
 radius = 44.011364
@@ -109,7 +110,7 @@ vertical_alignment = 1
 
 [node name="ThrusterSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2s445")
-volume_db = -6.0
+volume_db = -5.0
 
 [node name="FirstGemSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_bifn2")
@@ -135,6 +136,10 @@ volume_db = -4.0
 stream = ExtResource("12_nlqlk")
 volume_db = -20.0
 
+[node name="HealthLevelUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_q16h8")
+volume_db = 4.0
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.7999999999999998
+wait_time = 1.5
 one_shot = true

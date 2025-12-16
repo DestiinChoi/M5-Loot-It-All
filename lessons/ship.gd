@@ -7,6 +7,7 @@ extends Area2D
 @onready var third_gem_sound: AudioStreamPlayer = $ThirdGemSound
 @onready var fourth_gem_sound: AudioStreamPlayer = $FourthGemSound
 @onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var health_level_up_sound: AudioStreamPlayer = $HealthLevelUpSound
 @onready var timer = $Timer
 
 var max_speed := 1200.0
@@ -27,6 +28,11 @@ func _process(delta: float) -> void:
 		set_health(health - health_decay * delta)
 	if health >= max_health:
 		health = max_health
+	if gem_count >= 10:
+		health_level_up_sound.play()
+		gem_count = 0
+		set_gem_count(gem_count)
+	
 	
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("move_left", "move_right")
@@ -68,7 +74,7 @@ func set_health(new_health: float) -> void:
 func set_gem_count(new_gem_count: int) -> void:
 	gem_count = new_gem_count
 	get_node("UI/GemCount").text = str(gem_count)
-
+	
 
 
 func _on_area_entered(area_that_entered: Area2D) -> void:
@@ -92,7 +98,11 @@ func _gem_collected() -> void:
 		second_gem_sound.play()
 	elif gem_streak == 2:
 		third_gem_sound.play()
-	elif gem_streak >= 3:
+	elif gem_streak == 3:
+		fourth_gem_sound.play()
+	elif gem_streak == 4:
+		fourth_gem_sound.play()
+	elif gem_streak >= 5:
 		fourth_gem_sound.play()
 		await fourth_gem_sound.finished
 		gem_streak = 0

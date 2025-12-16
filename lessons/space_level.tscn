@@ -16,5 +16,5 @@ position = Vector2(946, 546)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4rc43")
-volume_db = 2.0
+volume_db = 4.0
 autoplay = true
