@@ -6,6 +6,7 @@ extends Area2D
 @onready var second_gem_sound: AudioStreamPlayer = $SecondGemSound
 @onready var third_gem_sound: AudioStreamPlayer = $ThirdGemSound
 @onready var fourth_gem_sound: AudioStreamPlayer = $FourthGemSound
+@onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var timer = $Timer
 
 var max_speed := 1200.0
@@ -13,7 +14,7 @@ var velocity := Vector2(0, 0)
 var steering_factor := 3.0
 var health : float = 100
 var gem_count := 0
-var health_decay : float = 4.5
+var health_decay : float = 5
 var max_health : float = 100
 var gem_streak := 0
 
@@ -58,6 +59,9 @@ func set_health(new_health: float) -> void:
 	health = new_health
 	get_node("UI/HealthBar").value = health
 	if health <= 0:
+		death_sound.play()
+		visible = false
+		await death_sound.finished
 		get_tree().reload_current_scene()
 
  # GemCount Code
